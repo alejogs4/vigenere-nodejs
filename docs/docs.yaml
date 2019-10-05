@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: API vigenere
+  description: Documentacion de la API de un desencriptador de código vigenere
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3002/api/v1
+    description: Servidor donde se realizaran todas las consultas a la API en desarrollo
+paths:
+  /vigenere:
+    post:
+      summary: Ruta que permite mandar un mensaje encriptado con vigenere y devuelve su llave y el mensaje descrifrado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: KQOWE FVJPU JUUNU KGLME KJINM WUXFQ MKJBG WRLFNFGHUD WUUMB SVLPS NCMUE KQCTE SWREE KOYSS IWCTUAXYOT APXPL WPNTC GOJBG FQHTD WXIZA YGFFN SXCSEYNCTS SPNTU JNYTG GWZGR WUUNE JUUQE APYME KQHUIDUXFP GUYTS MTFFS HNUOC ZGMRU WEYTR GKMEE DCTVRECFBD JQCUS WVBPN LGOYL SKMTE FVJJT WWMFM WPNMEMTMHR SPXFS SKFFS TNUOC ZGMDO EOYEE KCPJR GPMURSKHFR SEIUE VGOYC WXIZA YGOSA ANYDO EOYJL WUNHAMEBFE LXYVL WNOJN SIOFR WUCCE SWKVI DGMUC GOCRUWGNMA AFFVN SIUDE KQHCE UCPFC MPVSU DGAVE MNYMAMVLFM AOYFN TQCUA FVFJN XKLNE IWCWO DCCUL WRIFTWGMUS WOVMA TNYBU HTCOC WFYTN MGYTQ MKBBN LGFBT WOJFT WGNTE JKNEE DCLDH WTVBU VGFBI JGYYI DGMVR DGMPL SWGJL AGOEE KJOFE KNYNO LRIVR WVUHE IWUUR WGMUT JCDBN KGMBI DGMEE YGUOT DGGQE UJYOT VGGBR UJYS
+      responses:
+        "200": # status code
+          description: Json con la informacion del código
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: message
+                  length:
+                    type: number
+                    example: 8
+                  key:
+                    type: string
+                    example: key
+                  messageDecrypted:
+                    type: string
+                    example: message decrypted
